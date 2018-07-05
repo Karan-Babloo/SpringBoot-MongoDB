@@ -7,6 +7,7 @@ import com.karan.boot.Employee;
 
 public interface EmployeeDAO extends MongoRepository<Employee, String> {
 	
+	
 	public Employee FindOneByName();
 	
 }
