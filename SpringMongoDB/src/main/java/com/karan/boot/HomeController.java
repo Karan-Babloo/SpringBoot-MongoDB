@@ -2,7 +2,6 @@ package com.karan.boot;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,7 +25,22 @@ public class HomeController {
 		employeeDAO.save(employee);
 	}
 	
+	//Read
+		@RequestMapping(value = "{/id}")
+		public void read(@PathVariable String id) {
+			employeeDAO.findById(id);
+		}
 	
+	//update
+	@RequestMapping(method = RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
+	public void update(Employee employee) {
+		employeeDAO.save(employee);
+	}
 	
+	//Delete
+	@RequestMapping(value = "{/id}",method = RequestMethod.GET)
+	public void delete(String id) {
+		employeeDAO.delete(id);
+	}
 	
 }
